@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 
 function CreateSticker() {
 
@@ -21,10 +22,12 @@ function CreateSticker() {
     Axios.post('http://localhost:3001/create', {
       name: name,
       description: description,
-      price: price 
+      price: price
     })};
 
   return (
+  <Container>
+    <h3>Create Sticker</h3>
     <Form noValidate validated={validated} onSubmit={addSticker}>
         <Form.Group className="mb-3" controlId="validationCustom01">
             <Form.Label>Item Name</Form.Label>
@@ -46,7 +49,7 @@ function CreateSticker() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="validationCustom03">
             <Form.Label>Price</Form.Label>
-            <Form.Control required type="number" placeholder="Enter Price" onChange={(event) => {
+            <Form.Control required type="number" step="0.01" placeholder="Enter Price" onChange={(event) => {
                 setPrice(event.target.value);
             }}/>
             <Form.Control.Feedback type="invalid">
@@ -56,7 +59,9 @@ function CreateSticker() {
         <Button variant="primary" type="submit">
             Submit
         </Button>
-    </Form>  
+    </Form>
+  </Container>
+
   );
 }
 

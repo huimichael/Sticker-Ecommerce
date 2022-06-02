@@ -8,8 +8,11 @@ function Navigation () {
     return (
         <Navbar>
             <Container>
+                <p style={{ margin: 8 }}>Sticker Boiz</p>
                 <Nav>
                     <NavLink as={Link} to='/'>Home</NavLink>
+                    <NavLink as={Link} to='/Shop'>Shop</NavLink>
+                    <NavLink as={Link} to='/CreateSticker'>Create Sticker</NavLink>
                 </Nav>
             </Container>
         </Navbar>
