@@ -9,8 +9,8 @@ app.use(express.json());
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
-    password: 'password',
-    database: 'sticker_system',
+    password: 'Password123',
+    database: 'StickerEcommerce',
 });
 
 app.post('/create', (req, res) => {
@@ -30,7 +30,7 @@ app.post('/create', (req, res) => {
 });
 
 app.get('/stickers', (req, res) => {
-    db.query("SELECT * FROM stickers", (err, result) => {
+    db.query("CALL `View_AllStickers_Proc`", (err, result) => {
         if (err) {
             console.log(err);
         } else {
